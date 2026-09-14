@@ -2,10 +2,14 @@
 
 ![BrokenPipe launching an interactive NT AUTHORITY SYSTEM command prompt](assets/brokenpipe-system-shell.png)
 
-Greetz to [@MSNIGHTMARE2000](https://github.com/msnightmare). (NIGHTMARE ECLIPSE/INFINITE ECLIPSE) for the inspo - Please give him a job
-Shoutout to Tookie, Hazetick, belogen and bet3rd for being the ultimate homies.
-And you still owe me an Overwatch gaming session lusilly, meow :3
 
+<i>Greetz to</i> [@MSNIGHTMARE2000](https://github.com/msnightmare) <i>for the inspo - <ins>Please give him a job and email him!</ins></i>
+<br>
+<i>Shoutout to</i> __Tookie__, __Hazetick__, __belogen__ and __bet3rd__ <i>for being the ultimate homies.</i>
+<br>
+<i>And you still owe me an Overwatch or Starlight Princess gaming session</i> __lusilly__, meow :3
+<br>
+</i>
 
 # What is BrokenPipe?
 
