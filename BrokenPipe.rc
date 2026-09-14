@@ -1,0 +1,4 @@
+#include "resource.h"
+
+IDR_BrokenPipe_PAYLOAD RCDATA "payload\\BrokenPipePayload.zip"
+IDR_BrokenPipe_BOOTSTRAP RCDATA "BrokenPipe-Bootstrap.ps1"

@@ -1,0 +1,6 @@
+.vs/
+.vscode/
+*.vcxproj.user
+build/
+dist/
+x64/
