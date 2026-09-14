@@ -1,4 +1,4 @@
-# BrokenPipe - Steam Client Service Local Privilege Escalation Vulnerability
+# BrokenPipe - Steam Client Service LPE Vulnerability
 
 ![BrokenPipe launching an interactive NT AUTHORITY SYSTEM command prompt](assets/brokenpipe-system-shell.png)
 
