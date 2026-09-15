@@ -2,7 +2,8 @@
 
 ![BrokenPipe launching an interactive NT AUTHORITY SYSTEM command prompt](assets/brokenpipe-system-shell.png)
 
-PoC Video: [HERE](https://www.youtube.com/watch?v=4QeQIhZv1hY)
+PoC Video: [HERE](https://www.youtube.com/watch?v=4QeQIhZv1hY)<br>
+Nice little video by John Hammond [HERE](https://youtu.be/Jx6Jvykqhsk)
 <br>
 <br>
 <i>Greetz to</i> [@MSNIGHTMARE2000](https://github.com/msnightmare) <i>for the inspo - <ins>Please give him a job and email him!</ins></i>
