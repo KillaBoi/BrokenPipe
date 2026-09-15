@@ -45,8 +45,8 @@ Establish IPC connection to Steam Client Service (No Admin Needed)
 IClientInstallUtils::AddInstallScriptToWhiteList
                          |
                          |  Genuine Valve-signed VDF
-                         |  Caller-controlled installation root
-                         |  Relocated launcher becomes whitelisted
+                         |  Caller-controlled installation root             <------ flaw exists here.
+                         |  Relocated launcher becomes whitelisted          <---------ˡ
                          v
 IClientInstallUtils::RunInstallScript
                          |
@@ -131,6 +131,32 @@ BrokenPipe\
 
 The embedded payload must remain at `payload\BrokenPipePayload.zip` unless its resource path is also
 updated in `BrokenPipe.rc`.
+
+## FAQ
+
+Q: __What is this__
+<br>
+A: <i>A Standard User -> SYSTEM Local Privilege Escalation</i>
+<br>
+<br>
+Q: __Isn't it useless?__
+<br>
+A: <i>For you, maybe, for others, probably not.</i>
+<br>
+<br>
+Q: __What's so bad about it__
+<br>
+A: <i>You're gaining SYSTEM privileges, it's a tier higher than Administrator (what you right click and select) and a tier lower than TRUSTEDINSTALLER without actually being an admin in the first place. If you don't understand this, Google it (or ask your friendly neighborhood LLM such as Grok, ChatGPT or Siri lmao)</i>
+<br>
+<br>
+Q: __Why?__
+<br>
+A: <i>Cuz VALVE already knows about it since March, they haven't fixed it and merely because I don't care about Steam or any VALVE games especially when CS2 is ridden with cheaters and exploiters. They should fix it and look into that 5 month old report.</i>
+<br>
+<br>
+Q: __Some stupid Standard Admin Install question or whatever that someone gave that gave me slight brain cell loss...__
+<br>
+A: <i>Even your antivirus needs admin rights when you're installing it, installing Steam of course requires admin rights on the first install. After that it just runs the service as SYSTEM even for a standard user. Don't ask me, ask VALVE.</i>
 
 ## Disclaimer
 
