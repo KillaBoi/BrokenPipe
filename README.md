@@ -139,6 +139,10 @@ Q: __What is this__
 A: <i>A Standard User -> SYSTEM Local Privilege Escalation</i>
 <br>
 <br>
+Q: __How does it work?__
+A: <i>Look into `Payload\BrokenPipePayload.zip`, unzip it and read the code.</i>
+<br>
+<br>
 Q: __Isn't it useless?__
 <br>
 A: <i>For you, maybe, for others, probably not.</i>
