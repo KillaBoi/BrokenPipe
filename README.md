@@ -31,10 +31,40 @@ command prompt without requesting administrator credentials or displaying a UAC 
 
 ## Technical summary
 
-The Steam Client Service accepts a caller-controlled installation root that is not covered by the
+The Steam Client Service (`steamservice.exe`), which always runs as SYSTEM, accepts a caller-controlled installation root that is not covered by the
 signature of a genuine Valve-signed install-script VDF. BrokenPipe uses this signature-coverage gap
 to make the privileged service execute the included launcher from a relocated path as SYSTEM. It
 does not forge, modify, or bypass the VDF signature.
+
+Pipeline:
+
+```
+Establish IPC connection to Steam Client Service (No Admin Needed)
+                         |
+                         v
+IClientInstallUtils::AddInstallScriptToWhiteList
+                         |
+                         |  Genuine Valve-signed VDF
+                         |  Caller-controlled installation root
+                         |  Relocated launcher becomes whitelisted
+                         v
+IClientInstallUtils::RunInstallScript
+                         |
+                         |  Service processes the run VDF
+                         |  Whitelisted launcher is selected
+                         v
+Steam Client Service launches the executable as SYSTEM
+                         |
+                         |  BrokenPipe receives an interactive
+                         |  NT AUTHORITY\SYSTEM command prompt
+                         v
+IClientInstallUtils::GetInstallScriptExitCode
+                         |
+                         |  Optional polling or result collection
+                         v
+Cleanup and receipt generation
+```
+
 
 The proof was validated against the current version of Steam `10.96.30.42` on the latest versions of Windows 10 and Windows 11 x64.
 
