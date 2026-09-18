@@ -9,6 +9,20 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+Write-Host @'
+BrokenPipe - by @Killa
+Greetz to (NIGHTMARE ECLIPSE/INFINITE NIGHTMARE/@MSNightmare2000), PLEASE HIRE HIM!
+
+Shoutout to Tookie, Hazetick, belogen and Nehsam
+MUEZZA GET WELL SOON
+MUEZZA GET WELL SOON
+MUEZZA GET WELL SOON
+thanks bet3rd for the tiktoks, you da best :3
+
+
+and hey, lusilly, you still owe me a Overwatch gaming session ;)
+'@ -ForegroundColor Cyan
+
 $steamPath = Join-Path `
     ([Environment]::GetFolderPath([Environment+SpecialFolder]::ProgramFilesX86)) `
     'Steam\steam.exe'
