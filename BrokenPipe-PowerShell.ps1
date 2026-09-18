@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$PayloadPath = "$env:WINDIR\System32\cmd.exe",
-    [string]$PayloadArguments = '/K "title BrokenPipe SYSTEM Shell & whoami & prompt SYSTEM$G"',
+    [string]$PayloadArguments = '',
     [string]$WorkRoot = (Join-Path $env:TEMP "BrokenPipe-$PID"),
     [uint32]$AppId = 431960
 )

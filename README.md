@@ -77,7 +77,7 @@ No build step. BrokenPipe is a single self-contained PowerShell script. The genu
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\BrokenPipe-PowerShell.ps1
 ```
 
-By default the script copies `C:\Windows\System32\cmd.exe` and has the Steam Client Service launch it as SYSTEM. The default command runs `whoami` on launch, so the new console shows the Local System SID `S-1-5-18` with no further input. If Steam is not already running, the script starts it silently first.
+By default the script copies `C:\Windows\System32\cmd.exe` and has the Steam Client Service launch it as SYSTEM. That the relocated `launcher.exe` runs at all as `NT AUTHORITY\SYSTEM` is the proof (confirm it in Task Manager or Process Explorer). If Steam is not already running, the script starts it silently first.
 
 Point it at your own payload with parameters:
 
