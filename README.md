@@ -58,43 +58,32 @@ cleanup and receipt generation
 
 The proof was validated against the current version of Steam `10.96.30.42` on the latest versions of Windows 10 and Windows 11 x64.
 
-## Build
+## Requirements
 
-Requirements:
+- Windows 10 or Windows 11 x64
+- Steam installed, with the Steam Client Service running
+- Windows PowerShell 5.1 (ships with Windows)
 
-- Visual Studio 2022
-- Desktop development with C++ workload
-- MSVC v143
-- Windows 10 or Windows 11 SDK
-
-Open PowerShell in the project directory and run:
-
-```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
-```
-
-The finished executable is written to:
-
-```text
-x64\Release\BrokenPipe.exe
-```
-
-The build script finds MSBuild, verifies the embedded payload hash, rebuilds the x64 Release configuration, and prints the final executable path and SHA-256.
-
-You can also open `BrokenPipe.sln` in Visual Studio, select `Release | x64`, and choose **Build > Rebuild Solution**.
+No build step. BrokenPipe is a single self-contained PowerShell script. The genuine Valve-signed VDF is embedded as base64 and the Steam Client Service IPC client is an inline C# type, so there are no external binaries to compile or ship.
 
 ## Usage
 
 1. Sign in as a standard Windows user.
 2. Start Steam and leave it idle. A Steam account login is not required.
 3. Do not open a game.
-4. Run `BrokenPipe.exe` normally, without elevation.
-5. Verify the new SYSTEM prompt with `whoami`, `whoami /user`, or any other command you want to run.
-6. Type `exit` or close the SYSTEM prompt when finished.
+4. From the project directory, run the script without elevation:
 
-No command-line arguments or external runtime files are required. The payload ZIP is compiled into the executable. The proof creates no persistence, launches only the canonical `C:\Windows\System32\cmd.exe`, and places the elevated process tree in a kill-on-close Windows job. JSON receipts are written to `C:\Users\Public\BrokenPipe`.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\BrokenPipe-PowerShell.ps1
+```
 
-To adjust the payload, it lives in the `payload` folder as `BrokenPipePayload.zip`.
+By default the script copies `C:\Windows\System32\cmd.exe` and has the Steam Client Service launch it as SYSTEM. The default command runs `whoami` on launch, so the new console shows the Local System SID `S-1-5-18` with no further input. If Steam is not already running, the script starts it silently first.
+
+Point it at your own payload with parameters:
+
+```powershell
+.\BrokenPipe-PowerShell.ps1 -PayloadPath "C:\path\to\payload.exe" -PayloadArguments "your args"
+```
 
 ## Source layout
 
@@ -102,19 +91,12 @@ To adjust the payload, it lives in the `payload` folder as `BrokenPipePayload.zi
 BrokenPipe\
   assets\
     brokenpipe-system-shell.png
-  payload\
-    BrokenPipePayload.zip
-  BrokenPipe-Bootstrap.ps1
-  BrokenPipe.cpp
-  BrokenPipe.rc
-  BrokenPipe.sln
-  BrokenPipe.vcxproj
-  build.ps1
-  resource.h
+  BrokenPipe-PowerShell.ps1
+  LICENSE
   README.md
 ```
 
-The embedded payload must remain at `payload\BrokenPipePayload.zip` unless its resource path is also updated in `BrokenPipe.rc`.
+Everything is in `BrokenPipe-PowerShell.ps1`: it establishes the shared-memory IPC to the Steam Client Service, whitelists the embedded Valve-signed VDF against a caller-controlled install root, then runs the relocated launcher as SYSTEM.
 
 ## FAQ
 
@@ -122,7 +104,7 @@ The embedded payload must remain at `payload\BrokenPipePayload.zip` unless its r
 A Standard User -> SYSTEM Local Privilege Escalation.
 
 **How does it work?**<br>
-Look into `payload\BrokenPipePayload.zip`, unzip it and read the code.
+It's all in `BrokenPipe-PowerShell.ps1`, one file, read it top to bottom.
 
 **Isn't it useless?**<br>
 For you, maybe, for others, probably not.
@@ -135,6 +117,10 @@ Cuz VALVE already knows about it since March, they haven't fixed it and merely b
 
 **Some stupid Standard Admin Install question or whatever that someone gave that gave me slight brain cell loss...**<br>
 Even your antivirus needs admin rights when you're installing it, installing Steam of course requires admin rights on the first install. After that it just runs the service as SYSTEM even for a standard user. Don't ask me, ask VALVE.
+
+## Legacy
+
+The original release was a compiled C++ launcher (`BrokenPipe.exe`) that unpacked an embedded interactive lab, including a broker that marshalled a fully interactive SYSTEM console. That version lives on the [`legacy`](https://github.com/KillaBoi/BrokenPipe/tree/legacy) branch. This branch is the same vulnerability distilled into a single PowerShell script with no build step and no embedded binaries.
 
 ## Disclaimer
 
