@@ -2,7 +2,7 @@
 
 <sub>This is the single-script version. The original compiled C++ PoC is on the [legacy branch](https://github.com/KillaBoi/BrokenPipe/tree/legacy).</sub>
 
-![BrokenPipe launching an interactive NT AUTHORITY\SYSTEM command prompt](assets/brokenpipe-system-shell.png)
+![BrokenPipe launching an NT AUTHORITY\SYSTEM command prompt](assets/brokenpipe-system-shell.png)
 
 **PoC video:** [YouTube](https://www.youtube.com/watch?v=4QeQIhZv1hY)<br>
 **John Hammond's breakdown:** [YouTube](https://youtu.be/Jx6Jvykqhsk)
@@ -15,7 +15,7 @@
 
 ## What is BrokenPipe?
 
-BrokenPipe demonstrates a local privilege escalation from a standard Windows account to `NT AUTHORITY\SYSTEM` through the Steam Client Service. The proof launches an interactive SYSTEM command prompt without requesting administrator credentials or displaying a UAC prompt.
+BrokenPipe demonstrates a local privilege escalation from a standard Windows account to `NT AUTHORITY\SYSTEM` through the Steam Client Service. The proof launches a SYSTEM command prompt without requesting administrator credentials or displaying a UAC prompt.
 
 ## What the screenshot above proves
 
@@ -48,14 +48,8 @@ IClientInstallUtils::RunInstallScript
                          v
 Steam Client Service launches the executable as SYSTEM
                          |
-                         |  BrokenPipe receives an interactive
-                         |  NT AUTHORITY\SYSTEM command prompt
                          v
-IClientInstallUtils::GetInstallScriptExitCode
-                         |
-                         |  optional polling / result collection
-                         v
-cleanup and receipt generation
+the relocated launcher.exe now runs as NT AUTHORITY\SYSTEM
 ```
 
 The proof was validated against the current version of Steam `10.96.30.42` on the latest versions of Windows 10 and Windows 11 x64.
