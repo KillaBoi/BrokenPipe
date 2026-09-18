@@ -1,6 +1,6 @@
 # BrokenPipe - Steam Client Service LPE Vulnerability
 
-<sub>This is the single-script version. The original compiled C++ PoC is on the [legacy branch](https://github.com/KillaBoi/BrokenPipe/tree/legacy).</sub>
+<sub>This is the single-script version. The original compiled C++ PoC is on the [legacy branch](https://github.com/KillaBoi/BrokenPipe/tree/legacy). Thanks to John Hammond for the suggestion, subscribe to him!</sub>
 
 ![BrokenPipe launching an NT AUTHORITY\SYSTEM command prompt](assets/brokenpipe-system-shell.png)
 
