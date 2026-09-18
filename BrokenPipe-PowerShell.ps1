@@ -14,13 +14,11 @@ BrokenPipe - by @Killa
 Greetz to (NIGHTMARE ECLIPSE/INFINITE NIGHTMARE/@MSNightmare2000), PLEASE HIRE HIM!
 
 Shoutout to Tookie, Hazetick, belogen and Nehsam
-MUEZZA GET WELL SOON
-MUEZZA GET WELL SOON
-MUEZZA GET WELL SOON
-thanks bet3rd for the tiktoks, you da best :3
+Get Well Soon Muezza!
+Thanks bet3rd for the tiktoks, you da best :3
 
 
-and hey, lusilly, you still owe me a Overwatch gaming session ;)
+Lusilly, I'm still waiting for our Overwatching session •`_´•
 '@ -ForegroundColor Cyan
 
 $steamPath = Join-Path `
