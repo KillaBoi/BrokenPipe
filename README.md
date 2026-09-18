@@ -5,6 +5,8 @@
 **PoC video:** [YouTube](https://www.youtube.com/watch?v=4QeQIhZv1hY)<br>
 **John Hammond's breakdown:** [YouTube](https://youtu.be/Jx6Jvykqhsk)
 
+<sub>This is the single-script version. The original compiled C++ PoC is on the [legacy branch](https://github.com/KillaBoi/BrokenPipe/tree/legacy).</sub>
+
 ---
 
 *Greetz to* [@MSNIGHTMARE2000](https://github.com/msnightmare) *for the inspo -* <ins>please give him a job and email him!</ins><br>
