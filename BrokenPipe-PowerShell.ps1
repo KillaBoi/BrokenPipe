@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param(
     [string]$PayloadPath = "$env:WINDIR\System32\cmd.exe",
     [string]$PayloadArguments = '',
@@ -56,7 +56,7 @@ $signedVdfBytes = [Convert]::FromBase64String($signedVdfBase64)
 [IO.File]::WriteAllBytes($signedVdfPath, $signedVdfBytes)
 
 function ConvertTo-VdfString {
-    param([Parameter(Mandatory)][string]$Value)
+    param([Parameter(Mandatory)][AllowEmptyString()][string]$Value)
 
     $Value.Replace('\', '\\').Replace('"', '\"')
 }
